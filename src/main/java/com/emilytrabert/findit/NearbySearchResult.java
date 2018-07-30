@@ -11,10 +11,11 @@ import lombok.Setter;
 @Setter
 public class NearbySearchResult {
 
+	private String status;
 	@SerializedName("next_page_token")
 	private String nextPageToken;
 	private List<PartialPlace> results;
-	
+
 	@Getter
 	@Setter
 	class PartialPlace {
