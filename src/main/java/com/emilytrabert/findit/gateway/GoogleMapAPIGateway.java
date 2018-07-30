@@ -24,8 +24,8 @@ public class GoogleMapAPIGateway {
 		baseNearbyWebTarget = target.path("nearbysearch").path("json").queryParam("key", key);
 	}
 
-	public NearbySearchResult getNearby(double lat, double lon, int radius) {
-		WebTarget allNearby = baseNearbyWebTarget.queryParam("location", String.format("%f,%f", lat, lon)).queryParam("radius", radius);
+	public NearbySearchResult getNearby(double lon, double lat, int radius) {
+		WebTarget allNearby = baseNearbyWebTarget.queryParam("location", String.format("%f,%f", lon, lat)).queryParam("radius", radius);
 		Response response = allNearby.request().get();
 		return GSON.fromJson(response.readEntity(String.class), NearbySearchResult.class);
 	}
